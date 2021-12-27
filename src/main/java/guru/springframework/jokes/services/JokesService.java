@@ -1,4 +1,4 @@
-package guru.springframework.jokes.service;
+package guru.springframework.jokes.services;
 
 /**
  * @author flerma
