@@ -1,6 +1,6 @@
-package guru.springframework.chucknorrisjokes;
+package guru.springframework.jokes.controller;
 
-import guru.springframework.chucknorrisjokes.service.JokesGeneratorService;
+import guru.springframework.jokes.service.JokesService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class JokeController {
 
-    private final JokesGeneratorService jokesGeneratorService;
+    private final JokesService jokesGeneratorService;
 
-    public JokeController(JokesGeneratorService jokesGeneratorService) {
+    public JokeController(JokesService jokesGeneratorService) {
         this.jokesGeneratorService = jokesGeneratorService;
     }
 
     @RequestMapping
     public String getJoke(Model model) {
-        model.addAttribute("joke", jokesGeneratorService.getRandonJoke());
+        model.addAttribute("joke", jokesGeneratorService.getJoke());
         return "index/index";
     }
 
